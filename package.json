@@ -1,0 +1,26 @@
+{
+  "name": "tslint-dw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tslint.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewwyatt/tslint-dw.git"
+  },
+  "keywords": [
+    "tslint"
+  ],
+  "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drewwyatt/tslint-dw/issues"
+  },
+  "homepage": "https://github.com/drewwyatt/tslint-dw#readme",
+  "dependencies": {
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-immutable": "^4.5.3"
+  }
+}
