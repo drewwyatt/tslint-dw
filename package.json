@@ -1,26 +1,28 @@
 {
-  "name": "tslint-dw",
-  "version": "1.0.0",
-  "description": "",
-  "main": "tslint.json",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/drewwyatt/tslint-dw.git"
-  },
-  "keywords": [
-    "tslint"
-  ],
-  "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/drewwyatt/tslint-dw/issues"
-  },
-  "homepage": "https://github.com/drewwyatt/tslint-dw#readme",
-  "dependencies": {
-    "tslint-config-prettier": "^1.10.0",
-    "tslint-immutable": "^4.5.3"
-  }
+    "name": "tslint-dw",
+    "version": "0.1.0",
+    "description": "",
+    "main": "tslint.json",
+    "bin": { "tslint-dw": "index.js" },
+    "scripts": {
+        "postinstall": "node scripts/postinstall"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/drewwyatt/tslint-dw.git"
+    },
+    "keywords": ["tslint"],
+    "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/drewwyatt/tslint-dw/issues"
+    },
+    "homepage": "https://github.com/drewwyatt/tslint-dw#readme",
+    "dependencies": {
+        "chalk": "^2.3.2",
+        "commander": "^2.15.1",
+        "inquirer": "^5.2.0",
+        "tslint-config-prettier": "^1.10.0",
+        "tslint-immutable": "^4.5.3"
+    }
 }
