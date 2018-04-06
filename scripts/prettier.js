@@ -12,6 +12,14 @@ const includePrettierrc = {
     default: true,
 }
 
+const prettierrcPath = {
+    type: 'input',
+    name: 'prettierrcPath',
+    message: 'Where would you like us to place your .prettierrc?',
+    default: path.resolve('./.prettierrc'),
+    when: answers => answers.includePrettierrc,
+}
+
 const includeTslintPrettier = {
     type: 'confirm',
     name: 'includeTslintPrettier',
@@ -21,21 +29,33 @@ const includeTslintPrettier = {
     default: true,
 }
 
-const copyFiles = ({ includePrettierrc, includeTslintPrettier }) => {
-    // if (includePrettier) {
-    //     createReadStream(
-    //         path.resolve('./node_modules/tslint-dw/tslint-prettier.json'),
-    //     ).pipe(
-    //         createWriteStream(
-    //             path.resolve('./node_modules/tslint-dw/tslint.json'),
-    //             (one, two) => console.log('one', one, 'two', two),
-    //         ),
-    //     )
-    // } else {
-    //     console.log('poop')
-    // }
-    console.log(includePrettierrc, includeTslintPrettier)
+const copyFiles = ({
+    includePrettierrc,
+    prettierrcPath,
+    includeTslintPrettier,
+}) => {
+    if (includePrettierrc) {
+        createReadStream(path.join(__dirname, '../.prettierrc')).pipe(
+            createWriteStream(prettierrcPath, (one, two) =>
+                console.log('one', one, 'two', two),
+            ),
+        )
+    }
+
+    if (includeTslintPrettier) {
+        createReadStream(path.join(__dirname, '../tslint-prettier.json')).pipe(
+            createWriteStream(
+                path.join(__dirname, '../.tslint.json'),
+                (one, two) => console.log('one', one, 'two', two),
+            ),
+        )
+    } else {
+        console.log('poop')
+    }
+    console.log(includePrettierrc, prettierrcPath, includeTslintPrettier)
 }
 
 console.log(chalk.white.bgRed(' Configuring prettier... '))
-inquirer.prompt([includePrettierrc, includeTslintPrettier]).then(copyFiles)
+inquirer
+    .prompt([includePrettierrc, prettierrcPath, includeTslintPrettier])
+    .then(copyFiles)
