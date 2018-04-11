@@ -1,13 +1,5 @@
 const chalk = require('chalk')
-const pkg = require('../package.json')
-const { createReadStream, createWriteStream } = require('fs')
-const path = require('path')
-
-createReadStream(path.join(__dirname, '../tslint-no-prettier.json')).pipe(
-    createWriteStream(path.join(__dirname, '../tslint.json'), (one, two) =>
-        console.log('one', one, 'two', two),
-    ),
-)
+const pkg = require('tslint-dw/package.json')
 
 console.log(' ')
 console.log(

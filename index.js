@@ -1,4 +1,5 @@
-const pkg = require('./package.json')
+#!/usr/bin/env node
+const pkg = require('tslint-dw/package.json')
 const program = require('commander')
 
 program
@@ -7,7 +8,7 @@ program
     .parse(process.argv)
 
 if (program.prettier) {
-    require('./scripts/prettier')
+    require('tslint-dw/scripts/prettier')
 } else {
-    console.log('poo')
+    program.help()
 }
